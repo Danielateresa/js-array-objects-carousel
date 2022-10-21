@@ -173,20 +173,19 @@ buttonPrevEl.addEventListener('click', function () {
         images.reverse()
         console.log(images);
 
-        activeImg++
-        activeh2++
-        activep++
+        activeImg--
+        activeh2--
+        activep--
 
-        //seleziono seconda immagine, h2 e p per aggiungere la classe active
-        const nextImg = activeimages[activeImg];
-        const nexth2 = activeh2s[activeh2];
-        const nextp = activeps[activep];
+        const prevImg = activeimages[activeImg];
+        const prevh2 = activeh2s[activeh2];
+        const prevp = activeps[activep];
 
-        console.log(nextImg, nexth2, nextp);
+        console.log(prevImg, prevh2, prevp);
 
-        nextImg.classList.add('active');
-        nexth2.classList.add('active');
-        nextp.classList.add('active');
+        prevImg.classList.add('active');
+        prevh2.classList.add('active');
+        prevp.classList.add('active');
     } else {
         //seleziono seconda immagine, h2 e p per aggiungere la classe active
 

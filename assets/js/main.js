@@ -157,22 +157,36 @@ buttonPrevEl.addEventListener('click', function () {
     h2Visible.classList.remove('active');
     pVisible.classList.remove('active');
 
-    //incremento l'elemento attivo di 1 per scalare
-    activeImg--
-    activeh2--
-    activep--
+
 
     //condizione----------------------
 
     if (activeImg === 0) {
+        images.reverse()
+        console.log(images);
+
         //incremento l'elemento attivo di 1 per scalare
         activeImg = images.length
         activeh2 = images.length
         activep = images.length
 
-        images.reverse()
-        console.log(images);
+        activeImg--
+        activeh2--
+        activep--
 
+        const nextImg = activeimages[activeImg];
+        const nexth2 = activeh2s[activeh2];
+        const nextp = activeps[activep];
+
+        console.log(nextImg, nexth2, nextp);
+
+        nextImg.classList.add('active');
+        nexth2.classList.add('active');
+        nextp.classList.add('active');
+
+    } else {
+
+        //incremento l'elemento attivo di -1 per scalare
         activeImg--
         activeh2--
         activep--
@@ -186,18 +200,6 @@ buttonPrevEl.addEventListener('click', function () {
         prevImg.classList.add('active');
         prevh2.classList.add('active');
         prevp.classList.add('active');
-    } else {
-        //seleziono seconda immagine, h2 e p per aggiungere la classe active
 
-
-        const prevImg = activeimages[activeImg];
-        const prevh2 = activeh2s[activeh2];
-        const prevp = activeps[activep];
-
-        console.log(prevImg, prevh2, prevp);
-
-        prevImg.classList.add('active');
-        prevh2.classList.add('active');
-        prevp.classList.add('active');
     }
 })

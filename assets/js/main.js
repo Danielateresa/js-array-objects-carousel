@@ -54,7 +54,10 @@ let active = 0;
 //popolare dinamicamente il carosello.
 for (let i = 0; i < images.length; i++) {
     const imgobj = images[i];
-    const markup = `<img class="${i === 0 ? 'active' : ''}" src="./assets/${images.image}" alt="">`
 
+    console.log(imgobj.image);
+
+    const markup = `<img class="${i === 0 ? 'active' : ''}" src="./assets/${imgobj.image}" alt="">`
+    console.log(markup);
     sliderEl.insertAdjacentHTML('beforeend', markup);
 }

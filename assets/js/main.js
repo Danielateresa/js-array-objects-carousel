@@ -50,7 +50,9 @@ const images = [
 //seleziono l'elemento slider dalla DOM
 const sliderEl = document.querySelector('.slider');
 
-let active = 0;
+let activeImg = 0;
+let activeh2 = 0;
+let activep = 0;
 //popolare dinamicamente il carosello.
 for (let i = 0; i < images.length; i++) {
     let imgobj = images[i];
@@ -60,7 +62,7 @@ for (let i = 0; i < images.length; i++) {
 
 
 
-    const markup = `<img class="${i === 0 ? 'active' : ''}" src="./assets/${imgobj.image}" alt=""><h2 class="${i === 0 ? 'active' : ''}">${imgobj.title}</h2><p class=" ${i === 0 ? 'active' : ''}">${imgobj.text}</p>`
+    const markup = `<img class="${i === activeImg ? 'active' : ''}" src="./assets/${imgobj.image}" alt=""><h2 class="${i === activeh2 ? 'active' : ''}">${imgobj.title}</h2><p class=" ${i === activep ? 'active' : ''}">${imgobj.text}</p>`
     //console.log(markup);
     sliderEl.insertAdjacentHTML('beforeend', markup);
 }
@@ -77,4 +79,39 @@ const buttonPrevEl = document.querySelector('.prev');
 buttonNextEl.addEventListener('click', function () {
 
 
+    //prendo dal dom gli elementi attivi img, h2 e p
+    const activeimages = document.querySelectorAll('.slider > img');
+    const activeh2s = document.querySelectorAll('.slider > h2');
+    const activeps = document.querySelectorAll('.slider > p');
+
+    //metto in una costante gli elementi img, h2 e p attivi
+    const imgVisible = activeimages[activeImg];
+    const h2Visible = activeh2s[activeh2];
+    const pVisible = activeps[activep];
+
+    //console.log(allimages[active]);
+    //console.log(imgVisible, h2Visible, pVisible);
+
+    //rimuovo la classe active dagli elementi visibili
+    imgVisible.classList.remove('active');
+    h2Visible.classList.remove('active');
+    pVisible.classList.remove('active');
+
+    //incremento l'elemento attivo di 1 per scalare
+    activeImg++
+    activeh2++
+    activep++
+
+    //seleziono seconda immagine, h2 e p per aggiungere la classe active
+    const nextImg = activeimages[activeImg];
+    const nexth2 = activeh2s[activeh2];
+    const nextp = activeps[activep];
+
+    console.log(nextImg, nexth2, nextp);
+
+    nextImg.classList.add('active');
+    nexth2.classList.add('active');
+    nextp.classList.add('active');
 })
+
+//ora devofar ricomparire l'immagine precedente con il tasto prev

@@ -101,8 +101,9 @@ buttonNextEl.addEventListener('click', function () {
     activep++
 
     //condizione per creare il ciclo infinito
+    //se gli elementi attivi sono alla fine della lista..
     if (activeImg === images.length) {
-        //incremento l'elemento attivo di 1 per scalare
+        //gli elementi attivi passano al valore 0(primo posto) per ricominciare
         activeImg = 0
         activeh2 = 0
         activep = 0
@@ -115,10 +116,13 @@ buttonNextEl.addEventListener('click', function () {
 
         console.log(prevImg, prevh2, prevp);
 
+        //aggiungo la classe active
         prevImg.classList.add('active');
         prevh2.classList.add('active');
         prevp.classList.add('active');
     } else {
+
+        //altrimenti..procedo nella lista regolarmente
         //seleziono seconda immagine, h2 e p per aggiungere la classe active
         const nextImg = activeimages[activeImg];
         const nexth2 = activeh2s[activeh2];
@@ -160,43 +164,49 @@ buttonPrevEl.addEventListener('click', function () {
 
 
     //condizione----------------------
-
+    //se mi trovo alla prima immagine con indice 0...
     if (activeImg === 0) {
+        //inverto l'ordine dell'array
         images.reverse()
         console.log(images);
 
-        //incremento l'elemento attivo di 1 per scalare
+        //ora l'immagine arriva è l'ultima della lista
         activeImg = images.length
         activeh2 = images.length
         activep = images.length
 
+        //scalo la lista decrementando di 1 ()
         activeImg--
         activeh2--
         activep--
 
+        //passo all'immagine, h2 e p successivi che metto in una costante
         const nextImg = activeimages[activeImg];
         const nexth2 = activeh2s[activeh2];
         const nextp = activeps[activep];
 
         console.log(nextImg, nexth2, nextp);
 
+        //attacco la classe active all'elemento appena inserito nella costante
         nextImg.classList.add('active');
         nexth2.classList.add('active');
         nextp.classList.add('active');
 
     } else {
-
-        //incremento l'elemento attivo di -1 per scalare
+        //altrimenti..continuo con il decremento
+        //decremento l'elemento attivo di -1 per scalare
         activeImg--
         activeh2--
         activep--
 
+        //passo all'immagine, h2 e p successivi che metto in una costante
         const prevImg = activeimages[activeImg];
         const prevh2 = activeh2s[activeh2];
         const prevp = activeps[activep];
 
         console.log(prevImg, prevh2, prevp);
 
+        //attacco la classe active all'elemento appena inserito nella costante
         prevImg.classList.add('active');
         prevh2.classList.add('active');
         prevp.classList.add('active');

@@ -114,4 +114,42 @@ buttonNextEl.addEventListener('click', function () {
     nextp.classList.add('active');
 })
 
-//ora devofar ricomparire l'immagine precedente con il tasto prev
+//ora devo far ricomparire l'immagine precedente con il tasto prev
+
+buttonPrevEl.addEventListener('click', function () {
+
+
+    //prendo dal dom gli elementi attivi img, h2 e p
+    const activeimages = document.querySelectorAll('.slider > img');
+    const activeh2s = document.querySelectorAll('.slider > h2');
+    const activeps = document.querySelectorAll('.slider > p');
+
+    //metto in una costante gli elementi img, h2 e p attivi
+    const imgVisible = activeimages[activeImg];
+    const h2Visible = activeh2s[activeh2];
+    const pVisible = activeps[activep];
+
+    //console.log(allimages[active]);
+    //console.log(imgVisible, h2Visible, pVisible);
+
+    //rimuovo la classe active dagli elementi visibili
+    imgVisible.classList.remove('active');
+    h2Visible.classList.remove('active');
+    pVisible.classList.remove('active');
+
+    //incremento l'elemento attivo di 1 per scalare
+    activeImg--
+    activeh2--
+    activep--
+
+    //seleziono seconda immagine, h2 e p per aggiungere la classe active
+    const prevImg = activeimages[activeImg];
+    const prevh2 = activeh2s[activeh2];
+    const prevp = activeps[activep];
+
+    console.log(prevImg, prevh2, prevp);
+
+    prevImg.classList.add('active');
+    prevh2.classList.add('active');
+    prevp.classList.add('active');
+})

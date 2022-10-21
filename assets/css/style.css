@@ -29,3 +29,19 @@ img {
 .active {
     display: block;
 }
+
+h2,
+p {
+    display: none;
+    position: absolute;
+    color: white;
+    margin: 2rem
+}
+
+h2 {
+    top: 45%;
+}
+
+p {
+    top: 60%;
+}

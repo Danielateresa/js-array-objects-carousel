@@ -53,11 +53,28 @@ const sliderEl = document.querySelector('.slider');
 let active = 0;
 //popolare dinamicamente il carosello.
 for (let i = 0; i < images.length; i++) {
-    const imgobj = images[i];
+    let imgobj = images[i];
 
-    console.log(imgobj.image);
+    //console.log(imgobj.image);
 
-    const markup = `<img class="${i === 0 ? 'active' : ''}" src="./assets/${imgobj.image}" alt="">`
-    console.log(markup);
+
+
+
+    const markup = `<img class="${i === 0 ? 'active' : ''}" src="./assets/${imgobj.image}" alt=""><h2 class="${i === 0 ? 'active' : ''}">${imgobj.title}</h2><p class=" ${i === 0 ? 'active' : ''}">${imgobj.text}</p>`
+    //console.log(markup);
     sliderEl.insertAdjacentHTML('beforeend', markup);
 }
+
+//Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
+//recuper gli elementi dalla DOM 
+
+const buttonNextEl = document.querySelector('.next');
+const buttonPrevEl = document.querySelector('.prev');
+
+//console.log(buttonNextEl);
+
+//evento click next
+buttonNextEl.addEventListener('click', function () {
+
+
+})

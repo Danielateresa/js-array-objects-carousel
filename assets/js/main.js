@@ -170,6 +170,12 @@ buttonPrevEl.addEventListener('click', function () {
         activeh2 = images.length
         activep = images.length
 
+        images.reverse()
+        console.log(images);
+
+        activeImg++
+        activeh2++
+        activep++
 
         //seleziono seconda immagine, h2 e p per aggiungere la classe active
         const nextImg = activeimages[activeImg];
@@ -195,22 +201,4 @@ buttonPrevEl.addEventListener('click', function () {
         prevh2.classList.add('active');
         prevp.classList.add('active');
     }
-
-
-
-
-
-
-    //seleziono seconda immagine, h2 e p per aggiungere la classe active
-    const prevImg = activeimages[activeImg];
-    const prevh2 = activeh2s[activeh2];
-    const prevp = activeps[activep];
-
-    console.log(prevImg, prevh2, prevp);
-
-    prevImg.classList.add('active');
-    prevh2.classList.add('active');
-    prevp.classList.add('active');
 })
-
-//Aggiungere il ciclo infinito del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.

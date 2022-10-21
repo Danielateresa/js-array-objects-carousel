@@ -59,10 +59,8 @@ for (let i = 0; i < images.length; i++) {
 
     //console.log(imgobj.image);
 
-
-
-
-    const markup = `<img class="${i === activeImg ? 'active' : ''}" src="./assets/${imgobj.image}" alt=""><h2 class="${i === activeh2 ? 'active' : ''}">${imgobj.title}</h2><p class=" ${i === activep ? 'active' : ''}">${imgobj.text}</p>`
+    const markup = `<img class="${i === activeImg ? 'active' : ''}" src="./assets/${imgobj.image}" alt="">
+    <h2 class="${i === activeh2 ? 'active' : ''}">${imgobj.title}</h2><p class=" ${i === activep ? 'active' : ''}">${imgobj.text}</p>`
     //console.log(markup);
     sliderEl.insertAdjacentHTML('beforeend', markup);
 }
@@ -97,21 +95,43 @@ buttonNextEl.addEventListener('click', function () {
     h2Visible.classList.remove('active');
     pVisible.classList.remove('active');
 
-    //incremento l'elemento attivo di 1 per scalare
+    //incremento l'elemento attivo di 1 per aumentare
     activeImg++
     activeh2++
     activep++
 
-    //seleziono seconda immagine, h2 e p per aggiungere la classe active
-    const nextImg = activeimages[activeImg];
-    const nexth2 = activeh2s[activeh2];
-    const nextp = activeps[activep];
+    //condizione per creare il ciclo infinito
+    if (activeImg === images.length) {
+        //incremento l'elemento attivo di 1 per scalare
+        activeImg = 0
+        activeh2 = 0
+        activep = 0
 
-    console.log(nextImg, nexth2, nextp);
 
-    nextImg.classList.add('active');
-    nexth2.classList.add('active');
-    nextp.classList.add('active');
+        //seleziono seconda immagine, h2 e p per aggiungere la classe active
+        const prevImg = activeimages[activeImg];
+        const prevh2 = activeh2s[activeh2];
+        const prevp = activeps[activep];
+
+        console.log(prevImg, prevh2, prevp);
+
+        prevImg.classList.add('active');
+        prevh2.classList.add('active');
+        prevp.classList.add('active');
+    } else {
+        //seleziono seconda immagine, h2 e p per aggiungere la classe active
+        const nextImg = activeimages[activeImg];
+        const nexth2 = activeh2s[activeh2];
+        const nextp = activeps[activep];
+
+        console.log(nextImg, nexth2, nextp);
+
+        nextImg.classList.add('active');
+        nexth2.classList.add('active');
+        nextp.classList.add('active');
+    }
+
+
 })
 
 //ora devo far ricomparire l'immagine precedente con il tasto prev
@@ -141,6 +161,45 @@ buttonPrevEl.addEventListener('click', function () {
     activeImg--
     activeh2--
     activep--
+
+    //condizione----------------------
+
+    if (activeImg === 0) {
+        //incremento l'elemento attivo di 1 per scalare
+        activeImg = images.length
+        activeh2 = images.length
+        activep = images.length
+
+
+        //seleziono seconda immagine, h2 e p per aggiungere la classe active
+        const nextImg = activeimages[activeImg];
+        const nexth2 = activeh2s[activeh2];
+        const nextp = activeps[activep];
+
+        console.log(nextImg, nexth2, nextp);
+
+        nextImg.classList.add('active');
+        nexth2.classList.add('active');
+        nextp.classList.add('active');
+    } else {
+        //seleziono seconda immagine, h2 e p per aggiungere la classe active
+
+
+        const prevImg = activeimages[activeImg];
+        const prevh2 = activeh2s[activeh2];
+        const prevp = activeps[activep];
+
+        console.log(prevImg, prevh2, prevp);
+
+        prevImg.classList.add('active');
+        prevh2.classList.add('active');
+        prevp.classList.add('active');
+    }
+
+
+
+
+
 
     //seleziono seconda immagine, h2 e p per aggiungere la classe active
     const prevImg = activeimages[activeImg];

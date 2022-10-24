@@ -54,16 +54,20 @@ let activeImg = 0;
 let activeh2 = 0;
 let activep = 0;
 //popolare dinamicamente il carosello.
-for (let i = 0; i < images.length; i++) {
+/* for (let i = 0; i < images.length; i++) {
     let imgobj = images[i];
 
     //console.log(imgobj.image);
 
+   
+} */
+//sostituisco il ciclo for con il foreach
+images.forEach((imgobj, i) => {
     const markup = `<img class="${i === activeImg ? 'active' : ''}" src="./assets/${imgobj.image}" alt="">
     <h2 class="${i === activeh2 ? 'active' : ''}">${imgobj.title}</h2><p class=" ${i === activep ? 'active' : ''}">${imgobj.text}</p>`
     //console.log(markup);
     sliderEl.insertAdjacentHTML('beforeend', markup);
-}
+})
 
 //Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 //recuper gli elementi dalla DOM 
@@ -212,4 +216,14 @@ buttonPrevEl.addEventListener('click', function () {
         prevp.classList.add('active');
 
     }
+})
+
+//al click su thumbnails l'immagine deve cambiare
+
+const thumbnailSpiderEl = document.querySelector('.thumbnails > img');
+
+thumbnailSpiderEl.addEventListener('click', function () {
+    console.log('ho cliccato sulla thumb');
+
+
 })

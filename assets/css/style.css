@@ -12,6 +12,13 @@ img {
     display: none;
 }
 
+.thumbnails img {
+    display: block;
+    height: calc(100% / 5);
+    width: 100%;
+    cursor: pointer;
+}
+
 .prev,
 .next {
     position: absolute;
@@ -35,13 +42,17 @@ p {
     display: none;
     position: absolute;
     color: white;
-    margin: 2rem
+    margin: 2rem;
 }
 
 h2 {
-    top: 45%;
+    top: 35%;
+    right: 25%;
+    left: 1rem;
 }
 
 p {
-    top: 60%;
+    top: 50%;
+    right: 25%;
+    left: 1rem;
 }

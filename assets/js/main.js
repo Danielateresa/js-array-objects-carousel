@@ -170,8 +170,7 @@ buttonPrevEl.addEventListener('click', function () {
     //condizione----------------------
     //se mi trovo alla prima immagine con indice 0...
     if (activeImg === 0) {
-        //inverto l'ordine dell'array
-        images.reverse()
+
         console.log(images);
 
         //ora l'immagine arriva è l'ultima della lista
@@ -179,7 +178,7 @@ buttonPrevEl.addEventListener('click', function () {
         activeh2 = images.length
         activep = images.length
 
-        //scalo la lista decrementando di 1 ()
+        //scalo la lista decrementando di 1 ( 4,3,2...)
         activeImg--
         activeh2--
         activep--
@@ -218,12 +217,3 @@ buttonPrevEl.addEventListener('click', function () {
     }
 })
 
-//al click su thumbnails l'immagine deve cambiare
-
-const thumbnailSpiderEl = document.querySelector('.thumbnails > img');
-
-thumbnailSpiderEl.addEventListener('click', function () {
-    console.log('ho cliccato sulla thumb');
-
-
-})
